@@ -35,12 +35,27 @@
                         </div>
                     </div>
                     @endif
+
+                    @if(Auth::user()->hasAnyRoleId([1,2,3,4,5,6]))
                     <div class="nav-item">
-                        <a class="nav-link {{ ($activePage == 'POS')? 'active': ''}}" href="{{ url('POS') }}" data-placement="left" target="_blank">
-                          <i class="bi-pc-display-horizontal nav-icon"></i>
-                          <span class="nav-link-title">POS</span>
+                        <a class="nav-link dropdown-toggle {{ ($activePage == 'lista' ||$activePage == 'clientes' )? '': 'collapsed'}}" href="#navbarMenuCrm" role="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuCrm" aria-expanded=" {{ ($activePage == 'lista' ||$activePage == 'clientes')? 'true': 'false'}}" aria-controls="navbarMenuCrm">
+                            <i class="bi-building nav-icon"></i>
+                            <span class="nav-link-title">Manufactura</span>
                         </a>
+                        <div id="navbarMenuCrm" class="nav-collapse collapse  {{ ($activePage == 'lista' ||$activePage == 'clientes' )? 'show': ''}}" data-bs-parent="#navbarVerticalMenuPagesMenu">
+                            {{-- <a class="nav-link {{ ($activePage == 'leads')? 'active': ''}}" href="{{ route('leads.index') }}">Leads -</a> --}}
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Presupuestos</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Ordenes de compra</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Lista de materias</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Administración de fases de manufactura</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Administración de áreas de producción</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Tipos de ordenes de trabajo</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Planeación de manufactura</a>
+                            <a class="nav-link {{ ($activePage == 'clientes')? 'active': ''}}" href="{{ route('clientes.index') }}">Matenimiento</a>
+                        </div>
                     </div>
+                    @endif
+                    
                     @if(Auth::user()->hasAnyRoleId([1,2,3,4,5,6]))
                     <div class="nav-item">
                         <a class="nav-link dropdown-toggle {{ ($activePage == 'lista' ||$activePage == 'clientes' )? '': 'collapsed'}}" href="#navbarMenuCrm" role="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuCrm" aria-expanded=" {{ ($activePage == 'lista' ||$activePage == 'clientes')? 'true': 'false'}}" aria-controls="navbarMenuCrm">
@@ -58,7 +73,7 @@
                     <div class="nav-item">
                         <a class="nav-link dropdown-toggle {{ ($activePage == 'egresos' || $activePage == 'ingresos')? '': 'collapsed'}}" href="#navbarMenuEgresos" role="button" data-bs-toggle="collapse" data-bs-target="#navbarMenuEgresos" aria-expanded=" {{ ($activePage == 'egresos' || $activePage == 'ingresos')? 'true': 'false'}}" aria-controls="navbarMenuEgresos">
                             <i class="bi-cart4 nav-icon"></i>
-                            <span class="nav-link-title">Contabilidad</span>
+                            <span class="nav-link-title">Contabilidad y cuentas</span>
                         </a>
                         <div id="navbarMenuEgresos" class="nav-collapse collapse  {{ ($activePage == 'egresos'  || $activePage == 'ingresos')? 'show': ''}}" data-bs-parent="#navbarVerticalMenuPagesMenu">
                             <a class="nav-link {{ ($activePage == 'egresos')? 'active': ''}}" href="{{ route('egresos.index') }}">Egresos</a>
@@ -127,6 +142,7 @@
                             <a class="nav-link {{ ($activePage == 'sucursales')? 'active': ''}}" href="{{ route('sucursales.index') }}">Sucursales</a>                            
                             <a class="nav-link {{ ($activePage == 'lineas')? 'active': ''}}" href="{{ route('lineas.index') }}">Líneas</a>                            
                             <a class="nav-link {{ ($activePage == 'marcas')? 'active': ''}}" href="{{ route('marcas.index') }}">Marcas</a>                            
+                            <a class="nav-link {{ ($activePage == 'marcas')? 'active': ''}}" href="{{ route('marcas.index') }}">Formatos</a>                            
                         </div>
                     </div>
                     @endif
